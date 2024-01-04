@@ -1,0 +1,85 @@
+.containerHome {
+    width: 100%;
+    max-width: 1024px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.areaLinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.areaLinks a {
+    color: #FFF;
+    border-bottom: 2px solid #FFF;
+    padding: .6rem 0;
+    transition: all .5s;
+}
+
+
+.areaLinks a:hover {
+    transform: scale(1.11);
+}
+
+.areaInput {
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+label {
+    margin: .1rem 0;
+}
+
+.areaInput input {
+    width: 100%;
+    max-width: 350px;
+    height: 35px;
+    margin: .5rem 0;
+    outline: none;
+    padding: .3rem;
+}
+
+.btnCalc {
+    width: 100%;
+    height: 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    border: 0;
+    background-color: #218838;
+    color: #FFF;
+    box-shadow: rgba(44, 44, 44, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: all .5s;
+}
+
+.btnCalc:hover {
+    transform: scale(1.04);
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.resultado input {
+    background-color: #FFF;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.second {
+    background-color: #0069D9;
+    margin-top: 1.5em;
+}
