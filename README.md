@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Calculadora de Promoções em ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto em ReactJS é uma calculadora de promoções de produtos, permitindo a realização de cálculos promocionais como "Leve X Pague Y" e descontos especiais. A aplicação utiliza a biblioteca `react-toastify` para exibir notificações.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+### 1. Calculo de Promoção "Leve X Pague Y"
+A função `calcularResultado` realiza o cálculo promocional com base nos seguintes critérios:
+- Verifica se os campos necessários estão preenchidos.
+- Garante que o valor de "Leve" seja maior que o valor de "Pague".
+- Calcula o preço promocional conforme a fórmula `(precoInicial * pague) / leve`.
+- Formata o resultado como moeda brasileira.
 
-### `npm start`
+### 2. Limpeza de Campos
+A função `limparCampos` permite zerar todos os campos da aplicação, reiniciando o processo de cálculo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Trecho de Código
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+function calcularResultado() {
+    const formatoMoeda = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    })
 
-### `npm test`
+    if (precoInicial === '' || leve === '' || pague === '') {
+        toast.warn('Verificar os campos em branco.');
+        return;
+    }
+    if (leve <= pague) {
+        toast.error('O campo "LEVE" não pode ser menor que o campo "PAGUE". Verifique.');
+        return;
+    }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    let calcular = (precoInicial * pague) / leve;
+    const valorFormatado = formatoMoeda.format(calcular);
+    setResultado(valorFormatado);
+}
 
-### `npm run build`
+function limparCampos() {
+    setPrecoInicial('');
+    setLeve('');
+    setPague('');
+    setResultado('');
+    toast.info('Campos zerados com sucesso!');
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como Usar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório.
+2. Instale as dependências usando `npm install`.
+3. Execute o aplicativo com `npm start`.
+4. Preencha os campos e utilize as funções de cálculo e limpeza.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dependências
 
-### `npm run eject`
+- `react`: ^version
+- `react-toastify`: ^version
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contribuindo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Sinta-se à vontade para contribuir, abrir issues ou propor melhorias neste projeto. O seu feedback é sempre bem-vindo!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Divirta-se calculando promoções!**
