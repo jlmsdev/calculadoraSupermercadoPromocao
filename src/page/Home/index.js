@@ -2,6 +2,7 @@
  import { useState } from 'react';
  import { Link } from 'react-router-dom';
  import { toast } from 'react-toastify';
+ import Footer from '../../components/Footer';
 
 
 export default function Home() {
@@ -42,11 +43,12 @@ export default function Home() {
 
 
     return(
+        <>
         <main className="containerHome">
 
             <div className="areaLinks">
                 <Link to='/'>Leve Pague</Link>
-                <Link to='/desconto'>Desconto</Link>
+                {/* <Link to='/desconto'>Desconto</Link> */}
             </div>
 
             <div className='areaInput'>
@@ -90,5 +92,7 @@ export default function Home() {
             </div>
 
         </main>
+        <Footer />
+        </>
     )
 }
